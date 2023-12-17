@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Interés Compuesto</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function validarNumeroNegativo(input) {
+            if (input.value < 0) {
+                input.setCustomValidity('El número no puede ser negativo');
+            } else {
+                input.setCustomValidity('');
+            }
+        }
+
+        function validarEnter(event, input) {
+            if (event.key === "Enter") {
+                validarNumeroNegativo(input);
+            } else if (event.key === "Tab") {
+                validarNumeroNegativo(input);
+            }
+
+            document.addEventListener('focusout', function(event) {
+                if (event.target.tagName === 'INPUT' && event.target.type === 'number') {
+                  validarNumeroNegativo(event.target);
+                }
+              });
+        }
+    </script>
+</head>
+<body>
+    <div class="container"> 
+        <form action="/" method="post">
+            <input type="number" name="capital" placeholder="Ingrese el capital inicial" required oninput="validarNumeroNegativo(this)" onkeydown="validarEnter(event, this)" onblur="validarNumeroNegativo(this)"><br>
+            <input type="number" name="tasa" placeholder="Ingrese la tasa de interés anual" required oninput="validarNumeroNegativo(this)" onkeydown="validarEnter(event, this)" onblur="validarNumeroNegativo(this)"><br>
+            <input type="text" name="tiempo" placeholder="Ingrese el tiempo en años (p. ej. 0.5)" required>
+            <input id="boton" type="submit" value="Calcular">
+        </form>
+        <div id="resultado">
+            {% if monto_final %}
+            <p>El monto final será de: {{ monto_final }}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

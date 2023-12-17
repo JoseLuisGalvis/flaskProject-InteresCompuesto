@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(193, 240, 240);
+}
+
+body {
+    font-family: 'Roboto', serif;
+    background: #190125;
+}
+
+.container {
+    width: 100%;
+    height: 97vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+form {
+    width: 30%;
+    height: 37vh;
+    background-color:rgb(244, 241, 241);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 3px solid rgba(0,0,0,0.5);
+    border-radius: 0.5em;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+}
+
+input {
+    width: 60%;
+    height: 4vh;
+    padding: 0.25em 0.5em;
+    color: #000;
+    background-color: #ffff;
+    border-radius: 0.5em;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+}
+
+#boton {
+    width: 30%!important;
+    height: 5vh;
+    margin: 1em;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    color: #ffff;
+    background-color: black;
+    transition: transform 0.3s; /* Agregar transición para animación suave */
+}
+
+#boton:hover {
+    cursor: pointer;
+    font-weight: 700;
+    background-color: rgb(45, 44, 44);
+    transform: translateY(-3px); /* Mover el botón hacia arriba en el eje Z*/
+}
+
+#resultado {
+    width: 30%;
+    height: 4vh;
+    margin-top: 1em;
+}
+
+#resultado p {
+    font-size: 1.5em;
+}
